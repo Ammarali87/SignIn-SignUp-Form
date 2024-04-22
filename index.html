@@ -1,106 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SignIn&SignUp</title>
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-    <script
-      src="https://kit.fontawesome.com/64d58efce2.js"
-      crossorigin="anonymous"
-    ></script>
-  
-  </head>
-  <body>
-    <div class="container">
-      <div class="forms-container">
-        <div class="signin-signup">
-          <form action="" class="sign-in-form">
-            <h2 class="title">Sign In</h2>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
-            </div>
-            <input type="submit" value="Login" class="btn solid" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Sign smart</title>
+</head>
+<body>
 
-            <p class="social-text">Or Sign in with social platforms</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
-          </form>
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+    
+        <form class="row justify-content-center g-3 needs-validation">
+            <div class="card" id="card">
+    
+                <h2 id="title" class="text-primary">smart login system</h2>
+                <div class="col-md-6 d-none" id="nameInputDiv">
+                    <label for="name" class="form-label"></label>
+                    <input oninput="isValidElement(regName, this)" type="text" autocomplete="one-time-code"  placeholder="enter name" class="input-group-lg text-primary form-control" id="nameInput">
+                    <div class="invalid-feedback" id="nameInvalidFeedback">
+                        Please provide a valid name.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="emailx" class="form-label"></label>
+                    <input oninput="isValidElement(regEmail, this)" type="email" autocomplete="one-time-code"  placeholder="enter email" class="input-group-lg text-primary form-control" id="emailx">
+                    <div class="invalid-feedback">
+                        Please provide a valid email.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="passwordx" class="form-label"></label>
+                    <input oninput="isValidElement(regPassword, this)" autocomplete="new-password"  type="password" placeholder="enter password" class="input-group-lg text-primary form-control" id="passwordx">
+                    <div class="invalid-feedback">
+                        Please provide a valid password.
+                    </div>
+                </div>
+                <p class="d-none text-danger" id="valid-para-incorrect">incorrect email or password</p>
+                <p class="d-none text-danger" id="valid-para-fill">fill all input</p>
+                <button type="button" id="logbtn" class="btn mx-auto d-block fs-5 mt-5 mb-4 link-light">Login form</button>				
+                <button type="button"  id="sign" onclick="addUser()" class="btn mx-auto d-none fs-5 mt-5 mb-4 link-light">Sign form</button>				
+                <p id="hide-name" class="text-light d-block border-1 fs-5">
+                    Don't have an <span class="underline">account?</span></p>
+                <p id="show-name" onclick="showe()" class="text-light d-none fs-5"> Have <span class="underline"> account?</span></p>
 
-
-          <form action="" class="sign-up-form">
-            <h2 class="title">Sign Up</h2>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
             </div>
-            <div class="input-field">
-              <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
-            </div>
-            <input type="submit" value="Sign Up" class="btn solid" />
-
-            <p class="social-text">Or Sign up with social platforms</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="panels-container">
-
-        <div class="panel left-panel">
-            <div class="content">
-                <h3>New here?</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio minus natus est.</p>
-                <button class="btn transparent" id="sign-up-btn">Sign Up</button>
-            </div>
-            <img src="./img/log.svg" class="image" alt="">
-        </div>
-
-        <div class="panel right-panel">
-            <div class="content">
-                <h3>One of us?</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio minus natus est.</p>
-                <button class="btn transparent" id="sign-in-btn">Sign In</button>
-            </div>
-            <img src="./img/register.svg" class="image" alt="">
-        </div>
-      </div>
+        </form>
     </div>
+	
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+    <script src="java.js"></script>
+    <script>
+        const emailxInput = document.getElementById("emailx");
+        const passwordxInput = document.getElementById("passwordx");
+        const nameInput = document.getElementById("nameInput");
+        const nameInputDiv = document.getElementById("nameInputDiv");
+        const nameInvalidFeedback = document.getElementById("nameInvalidFeedback");
+        const fillInput = document.getElementById("valid-para-fill");
+        const incorrectInput = document.getElementById("valid-para-incorrect");
+        const logbtn = document.getElementById("logbtn");
+        const signbtn = document.getElementById("sign");
+        const title = document.getElementById("title");
+        const hideName = document.getElementById("hide-name");
+        const show = document.getElementById("show-name");
+        const card = document.getElementById("card");
 
-    <script src="./app.js"></script>
-  </body>
+
+        const regName = /^[a-zA-Z\s]+$/;
+        const regEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const regPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+
+
+        var userList = JSON.parse(localStorage.getItem("userList")) || [];
+                     
+    function addUser(e) {
+
+        e.preventDefault(); // Prevent form submission
+
+        if (isValidElement(regName, nameInput) && isValidElement(regEmail, emailxInput) && isValidElement(regPassword, passwordxInput)) {
+            let name = nameInput.value;
+            let email = emailxInput.value;
+            let password = passwordxInput.value;
+            let user = { name: name, email: email, password: password };
+
+            // Add user to userList
+            userList.push(user);
+
+            // Update localStorage with the updated userList
+            localStorage.setItem("userList", JSON.stringify(userList));
+            console.log(userList);
+            alert("User Added");
+
+            // Clear input fields and focus on nameInput
+            nameInput.value = "";
+            emailxInput.value = "";
+            passwordxInput.value = "";
+            nameInput.focus();
+        } else {
+            alert("Please fill all input fields correctly.");
+        }
+    }
+         
+     function isValidElement(reg, element) {
+        if (reg.test(element.value)) {
+            element.classList.add("is-valid");
+            element.classList.remove("is-invalid"); // Remove the 'is-invalid' class
+            return true;
+        } else {
+            element.classList.add("is-invalid");
+            element.classList.remove("is-valid"); // Remove the 'is-valid' class if it's still present
+            return false;
+        }
+    }
+
+
+         hideName.onclick = function() {
+            nameInputDiv.classList.replace("d-none", "d-block");
+            logbtn.classList.replace("d-block", "d-none");
+            signbtn.classList.replace("d-none", "d-block");
+            hideName.classList.replace("d-block", "d-none");
+            show.classList.replace("d-none", "d-block");
+        };
+
+        function showe() {
+            nameInputDiv.classList.replace("d-block", "d-none");
+            logbtn.classList.replace("d-none", "d-block");
+            signbtn.classList.replace("d-block", "d-none");
+            hideName.classList.replace("d-none", "d-block");
+            show.classList.replace("d-block", "d-none");
+        }
+
+        logbtn.onclick = function() {
+ 
+     var emails = userList.map(user => user.email);
+ 
+      var user = userList.find(user => user.email === emailxInput.value)
+       let userName = user.name ; 
+       
+     if (emails.includes(emailxInput.value)) {
+         card.innerHTML = `<h2 id="title" class="vh-100 align-baseline text-primary"> Welcome <br/><br/> 
+            ${ userName} </h2>`;
+    } else {
+         alert("Email not found. Please sign up first.");
+    }
+};
+    </script>
+</body>
 </html>
+
+
+
+
+
+
+
